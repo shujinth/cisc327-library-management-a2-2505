@@ -31,10 +31,11 @@ jobs:
 
     - name: Initialize database
       run: |
-        python from database import init_database, add_sample_data
-        python init_database()
-        python add_sample_data()
-        
+        python - <<'PY'
+        from database import init_database, add_sample_data
+        init_database()
+        add_sample_data()
+        PY
 
     - name: Run tests with coverage
       run: |
