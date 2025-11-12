@@ -38,6 +38,4 @@ jobs:
 
     - name: Run tests with coverage
       run: |
-        pip install coverage pytest
-          coverage run -m pytest -q
-          coverage report -m
+        pytest --cov-master --cov-report=xml tests/
