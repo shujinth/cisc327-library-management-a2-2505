@@ -2,7 +2,7 @@ name: Library Services CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
 
 jobs:
@@ -29,4 +29,6 @@ jobs:
 
     - name: Run tests with coverage
       run: |
-        pytest --maxfail=3 --disable-warnings -q --tb=short
+        pip install coverage pytest
+          coverage run -m pytest -q
+          coverage report -m
