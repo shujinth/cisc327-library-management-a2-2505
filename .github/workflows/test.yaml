@@ -28,6 +28,14 @@ jobs:
       run: |
         echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
+    - name: Initialize database
+      run: |
+        python - <<'PY'
+        from database import init_database, add_sample_data
+        init_database()
+        add_sample_data()
+        PY
+
     - name: Run tests with coverage
       run: |
         pip install coverage pytest
